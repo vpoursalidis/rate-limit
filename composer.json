@@ -50,8 +50,8 @@
     "scripts": {
         "phpcs": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php",
 
-        "check:style": "@phpcs --dry-run --format=txt --verbose --diff",
-        "fix:style": "@phpcs",
+        "style:check": "@phpcs --dry-run --format=txt --verbose --diff",
+        "style:fix": "@phpcs",
 
         "test": "phpunit --colors=always",
         "stan": "phpstan analyse"

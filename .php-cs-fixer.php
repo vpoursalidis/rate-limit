@@ -7,6 +7,9 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('vendor');
 
 $config = new PhpCsFixer\Config();
+// More details on:
+// - https://cs.symfony.com/
+// - https://mlocati.github.io/php-cs-fixer-configurator/#version:3.3
 return $config->setRules([
         '@PSR12' => true,
         'array_syntax' => ['syntax' => 'short'],
