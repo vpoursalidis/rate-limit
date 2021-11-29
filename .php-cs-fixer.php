@@ -38,4 +38,4 @@ return $config->setRules([
     ->setIndent("    ")
     ->setLineEnding("\n")
     ->setRiskyAllowed(true)
-    ->setFinder($finder); /* @phpstan-ignore-line */
+    ->setFinder($finder);

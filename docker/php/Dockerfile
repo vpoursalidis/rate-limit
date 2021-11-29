@@ -6,7 +6,9 @@ RUN apt-get update && apt-get install -y zip libzip-dev
 # Install dependencies
 RUN pecl install redis-5.3.4 \
     && pecl install apcu-5.1.21 \
-    && docker-php-ext-enable redis apcu \
+    && pecl install xdebug-3.1.1 \
+    && docker-php-ext-enable redis apcu xdebug \
+    && echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "apc.enable_cli=1" >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini \
     && docker-php-ext-install zip
 

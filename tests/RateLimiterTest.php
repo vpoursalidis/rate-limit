@@ -76,6 +76,7 @@ abstract class RateLimiterTest extends TestCase
 
         $this->assertTrue($status->limitExceeded());
         $this->assertSame(0, $status->getRemainingAttempts());
+        $this->assertEquals(time() + 3600, $status->getResetAt()->getTimestamp());
     }
 
     /**
