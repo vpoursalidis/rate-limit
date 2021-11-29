@@ -41,7 +41,7 @@ final class InMemoryRateLimiter extends ConfigurableRateLimiter implements RateL
     {
         $interval = $this->rate->getInterval();
 
-        return "$identifier:$interval:" . floor(time() / $interval);
+        return "$identifier:$interval:".floor(time() / $interval);
     }
 
     private function hit(string $key): int
