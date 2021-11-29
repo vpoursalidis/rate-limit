@@ -18,7 +18,7 @@ class PredisRateLimiterTest extends RateLimiterTest
             $this->markTestSkipped('Predis library is not available');
         }
 
-        $predis = new Client('tcp://127.0.0.1:6379');
+        $predis = new Client('tcp://redis:6379');
 
         $predis->connect();
         if (!$predis->isConnected()) {

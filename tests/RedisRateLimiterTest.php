@@ -20,7 +20,7 @@ class RedisRateLimiterTest extends RateLimiterTest
 
         $redis = new Redis();
 
-        $success = @ $redis->connect('127.0.0.1', 6379);
+        $success = @ $redis->connect('redis', 6379);
 
         if (!$success) {
             $this->markTestSkipped('Cannot connect to Redis.');
