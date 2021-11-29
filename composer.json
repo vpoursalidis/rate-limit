@@ -25,9 +25,9 @@
         "ext-apcu": ">=5.1.12",
         "ext-redis": "*",
         "friendsofphp/php-cs-fixer": "^3",
-        "phpstan/phpstan": "^0.12.10",
-        "phpstan/phpstan-beberlei-assert": "^0.12.2",
-        "phpstan/phpstan-phpunit": "^0.12.6",
+        "phpstan/phpstan": "^1",
+        "phpstan/phpstan-beberlei-assert": "^1",
+        "phpstan/phpstan-phpunit": "^1",
         "phpunit/phpunit": "^8.0",
         "predis/predis": "^1.1"
     },
@@ -49,12 +49,17 @@
     },
     "scripts": {
         "phpcs": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php",
+        "static": "phpstan analyse --memory-limit=1G",
 
         "style:check": "@phpcs --dry-run --format=txt --verbose --diff",
         "style:fix": "@phpcs",
 
         "test": "phpunit --colors=always",
-        "stan": "phpstan analyse"
+
+        "check:all": [
+            "@style:fix",
+            "@static"
+        ]
     },
     "extra": {
         "branch-alias": {

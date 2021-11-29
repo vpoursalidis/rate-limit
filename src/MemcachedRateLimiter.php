@@ -72,7 +72,7 @@ final class MemcachedRateLimiter extends ConfigurableRateLimiter implements Rate
 
     private function getCurrent(string $limitKey): int
     {
-        return (int) $this->memcached->get($limitKey);
+        return intval($this->memcached->get($limitKey));
     }
 
     private function updateCounterAndTime(string $limitKey, string $timeKey): int
@@ -95,7 +95,7 @@ final class MemcachedRateLimiter extends ConfigurableRateLimiter implements Rate
 
     private function getElapsedTime(string $timeKey): int
     {
-        return time() - (int) $this->memcached->get($timeKey);
+        return time() - intval($this->memcached->get($timeKey));
     }
 
     /**

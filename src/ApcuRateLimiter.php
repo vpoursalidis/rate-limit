@@ -75,7 +75,7 @@ final class ApcuRateLimiter extends ConfigurableRateLimiter implements RateLimit
 
     private function getCurrent(string $limitKey): int
     {
-        return (int) apcu_fetch($limitKey);
+        return intval(apcu_fetch($limitKey));
     }
 
     private function updateCounterAndTime(string $limitKey, string $timeKey): int
@@ -98,6 +98,6 @@ final class ApcuRateLimiter extends ConfigurableRateLimiter implements RateLimit
 
     private function getElapsedTime(string $timeKey): int
     {
-        return time() - (int) apcu_fetch($timeKey);
+        return time() - intval(apcu_fetch($timeKey));
     }
 }
