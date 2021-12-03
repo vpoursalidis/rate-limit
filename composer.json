@@ -56,7 +56,7 @@
         "style:fix": "@phpcs",
 
         "test": "@phpunit --colors=always",
-        "coverage": "@phpunit --coverage-html coverage",
+        "coverage": "@phpunit -d memory_limit=1G --coverage-html coverage",
 
         "check:all": [
             "@style:fix",
